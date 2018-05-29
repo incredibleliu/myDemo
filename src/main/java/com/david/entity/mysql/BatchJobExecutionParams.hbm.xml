@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 2018-5-28 23:25:24 by Hibernate Tools 5.1.7.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="boot" dynamic-insert="false" dynamic-update="false" mutable="true" name="com.david.entity.BatchJobExecutionParams" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="batch_job_execution_params">
+        <composite-id class="com.david.entity.BatchJobExecutionParamsId" mapped="false" name="id" unsaved-value="undefined">
+            <key-property name="jobExecutionId" type="long">
+                <column name="JOB_EXECUTION_ID"/>
+            </key-property>
+            <key-property name="typeCd" type="string">
+                <column length="6" name="TYPE_CD"/>
+            </key-property>
+            <key-property name="keyName" type="string">
+                <column length="100" name="KEY_NAME"/>
+            </key-property>
+            <key-property name="stringVal" type="string">
+                <column length="250" name="STRING_VAL"/>
+            </key-property>
+            <key-property name="dateVal" type="timestamp">
+                <column length="19" name="DATE_VAL"/>
+            </key-property>
+            <key-property name="longVal" type="java.lang.Long">
+                <column name="LONG_VAL"/>
+            </key-property>
+            <key-property name="doubleVal" type="java.lang.Double">
+                <column name="DOUBLE_VAL" precision="22" scale="0"/>
+            </key-property>
+            <key-property name="identifying" type="char">
+                <column length="1" name="IDENTIFYING"/>
+            </key-property>
+        </composite-id>
+        <many-to-one class="com.david.entity.BatchJobExecution" embed-xml="true" fetch="select" insert="false" name="batchJobExecution" not-found="exception" optimistic-lock="true" unique="false" update="false">
+            <column name="JOB_EXECUTION_ID" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

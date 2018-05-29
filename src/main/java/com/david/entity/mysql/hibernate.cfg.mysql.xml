@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.bytecode.use_reflection_optimizer">false</property>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.password">888888</property>
+        <property name="hibernate.connection.url">jdbc:mysql://127.0.0.1:3306/boot?autoReconnect=true</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.default_schema">boot</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
+        <property name="hibernate.search.autoregister_listeners">true</property>
+        <property name="hibernate.validator.apply_to_ddl">false</property>
+        <mapping class="com.david.entity.BatchJobInstance"/>
+        <mapping class="com.david.entity.BatchJobExecution"/>
+        <mapping class="com.david.entity.BatchStepExecutionContext"/>
+        <mapping class="com.david.entity.BatchJobExecutionContext"/>
+        <mapping class="com.david.entity.BatchStepExecution"/>
+        <mapping class="com.david.entity.BatchStepExecutionSeq"/>
+        <mapping class="com.david.entity.BatchJobExecutionParams"/>
+        <mapping class="com.david.entity.BatchJobExecutionSeq"/>
+        <mapping class="com.david.entity.BatchJobSeq"/>
+    </session-factory>
+</hibernate-configuration>

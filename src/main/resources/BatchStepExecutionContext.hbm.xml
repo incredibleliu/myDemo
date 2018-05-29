@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 2018-5-29 1:37:45 by Hibernate Tools 5.3.0.Beta2 --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="H2" dynamic-insert="false" dynamic-update="false" mutable="true" name="com.david.entity.h2.BatchStepExecutionContext" optimistic-lock="version" polymorphism="implicit" schema="PUBLIC" select-before-update="false" table="BATCH_STEP_EXECUTION_CONTEXT">
+        <id name="stepExecutionId" type="long">
+            <column name="STEP_EXECUTION_ID"/>
+            <generator class="foreign">
+                <param name="property">batchStepExecution</param>
+            </generator>
+        </id>
+        <one-to-one class="com.david.entity.h2.BatchStepExecution" constrained="true" embed-xml="true" name="batchStepExecution"/>
+        <property generated="never" lazy="false" name="shortContext" optimistic-lock="true" type="string" unique="false">
+            <column length="2500" name="SHORT_CONTEXT" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="serializedContext" optimistic-lock="true" type="string" unique="false">
+            <column name="SERIALIZED_CONTEXT"/>
+        </property>
+    </class>
+</hibernate-mapping>

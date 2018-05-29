@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 2018-5-28 23:25:24 by Hibernate Tools 5.1.7.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="boot" dynamic-insert="false" dynamic-update="false" mutable="true" name="com.david.entity.BatchJobExecutionSeq" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="batch_job_execution_seq">
+        <composite-id class="com.david.entity.BatchJobExecutionSeqId" mapped="false" name="id" unsaved-value="undefined">
+            <key-property name="id" type="long">
+                <column name="ID"/>
+            </key-property>
+            <key-property name="uniqueKey" type="char">
+                <column length="1" name="UNIQUE_KEY"/>
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

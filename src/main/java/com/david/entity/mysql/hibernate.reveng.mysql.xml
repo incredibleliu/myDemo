@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.org/dtd/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+  <table-filter match-catalog="boot" match-name="batch_job_execution"/>
+  <table-filter match-catalog="boot" match-name="batch_job_execution_context"/>
+  <table-filter match-catalog="boot" match-name="batch_job_execution_params"/>
+  <table-filter match-catalog="boot" match-name="batch_job_execution_seq"/>
+  <table-filter match-catalog="boot" match-name="batch_job_instance"/>
+  <table-filter match-catalog="boot" match-name="batch_job_seq"/>
+  <table-filter match-catalog="boot" match-name="batch_step_execution"/>
+  <table-filter match-catalog="boot" match-name="batch_step_execution_context"/>
+  <table-filter match-catalog="boot" match-name="batch_step_execution_seq"/>
+</hibernate-reverse-engineering>

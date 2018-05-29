@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 2018-5-28 23:25:24 by Hibernate Tools 5.1.7.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="boot" dynamic-insert="false" dynamic-update="false" mutable="true" name="com.david.entity.BatchStepExecution" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="batch_step_execution">
+        <id name="stepExecutionId" type="long">
+            <column name="STEP_EXECUTION_ID"/>
+            <generator class="assigned"/>
+        </id>
+        <version generated="never" name="version" type="long" unsaved-value="undefined">
+            <column name="VERSION" not-null="true"/>
+        </version>
+        <many-to-one class="com.david.entity.BatchJobExecution" embed-xml="true" fetch="select" insert="true" name="batchJobExecution" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="JOB_EXECUTION_ID" not-null="true"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="stepName" optimistic-lock="true" type="string" unique="false">
+            <column length="100" name="STEP_NAME" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="startTime" optimistic-lock="true" type="timestamp" unique="false">
+            <column length="19" name="START_TIME" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="endTime" optimistic-lock="true" type="timestamp" unique="false">
+            <column length="19" name="END_TIME"/>
+        </property>
+        <property generated="never" lazy="false" name="status" optimistic-lock="true" type="string" unique="false">
+            <column length="10" name="STATUS"/>
+        </property>
+        <property generated="never" lazy="false" name="commitCount" optimistic-lock="true" type="java.lang.Long" unique="false">
+            <column name="COMMIT_COUNT"/>
+        </property>
+        <property generated="never" lazy="false" name="readCount" optimistic-lock="true" type="java.lang.Long" unique="false">
+            <column name="READ_COUNT"/>
+        </property>
+        <property generated="never" lazy="false" name="filterCount" optimistic-lock="true" type="java.lang.Long" unique="false">
+            <column name="FILTER_COUNT"/>
+        </property>
+        <property generated="never" lazy="false" name="writeCount" optimistic-lock="true" type="java.lang.Long" unique="false">
+            <column name="WRITE_COUNT"/>
+        </property>
+        <property generated="never" lazy="false" name="readSkipCount" optimistic-lock="true" type="java.lang.Long" unique="false">
+            <column name="READ_SKIP_COUNT"/>
+        </property>
+        <property generated="never" lazy="false" name="writeSkipCount" optimistic-lock="true" type="java.lang.Long" unique="false">
+            <column name="WRITE_SKIP_COUNT"/>
+        </property>
+        <property generated="never" lazy="false" name="processSkipCount" optimistic-lock="true" type="java.lang.Long" unique="false">
+            <column name="PROCESS_SKIP_COUNT"/>
+        </property>
+        <property generated="never" lazy="false" name="rollbackCount" optimistic-lock="true" type="java.lang.Long" unique="false">
+            <column name="ROLLBACK_COUNT"/>
+        </property>
+        <property generated="never" lazy="false" name="exitCode" optimistic-lock="true" type="string" unique="false">
+            <column length="2500" name="EXIT_CODE"/>
+        </property>
+        <property generated="never" lazy="false" name="exitMessage" optimistic-lock="true" type="string" unique="false">
+            <column length="2500" name="EXIT_MESSAGE"/>
+        </property>
+        <property generated="never" lazy="false" name="lastUpdated" optimistic-lock="true" type="timestamp" unique="false">
+            <column length="19" name="LAST_UPDATED"/>
+        </property>
+        <one-to-one class="com.david.entity.BatchStepExecutionContext" constrained="false" embed-xml="true" name="batchStepExecutionContext"/>
+    </class>
+</hibernate-mapping>

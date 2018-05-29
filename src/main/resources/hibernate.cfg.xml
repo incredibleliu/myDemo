@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.bytecode.use_reflection_optimizer">false</property>
+        <property name="hibernate.connection.driver_class">org.h2.Driver</property>
+        <property name="hibernate.connection.password"></property>
+        <property name="hibernate.connection.url">jdbc:h2:file:e:/h2/h2;AUTO_SERVER=TRUE</property>
+        <property name="hibernate.connection.username">sa</property>
+        <property name="hibernate.default_schema">PUBLIC</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.H2Dialect</property>
+        <property name="hibernate.search.autoregister_listeners">true</property>
+        <property name="hibernate.validator.apply_to_ddl">false</property>
+        
+    
+        
+        <!-- 
+        <mapping class="com.david.entity.BatchJobInstance"/>
+        <mapping class="com.david.entity.BatchJobExecution"/>
+        <mapping class="com.david.entity.BatchStepExecutionContext"/>
+        <mapping class="com.david.entity.BatchJobExecutionContext"/>
+        <mapping class="com.david.entity.BatchStepExecution"/>
+        <mapping class="com.david.entity.BatchStepExecutionSeq"/>
+        <mapping class="com.david.entity.BatchJobExecutionParams"/>
+        <mapping class="com.david.entity.BatchJobExecutionSeq"/>
+        <mapping class="com.david.entity.BatchJobSeq"/>
+         -->
+        <mapping resource="BatchJobExecution.hbm.xml"/>
+        <mapping resource="BatchJobExecutionContext.hbm.xml"/>
+        <mapping resource="BatchJobExecutionParams.hbm.xml"/>
+        <mapping resource="BatchJobInstance.hbm.xml"/>
+        <mapping resource="BatchStepExecution.hbm.xml"/>
+        <mapping resource="BatchStepExecutionContext.hbm.xml"/>
+    </session-factory>
+</hibernate-configuration>

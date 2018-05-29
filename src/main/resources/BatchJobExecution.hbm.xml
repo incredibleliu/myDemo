@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 2018-5-29 1:37:45 by Hibernate Tools 5.3.0.Beta2 --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="H2" dynamic-insert="false" dynamic-update="false" mutable="true" name="com.david.entity.h2.BatchJobExecution" optimistic-lock="version" polymorphism="implicit" schema="PUBLIC" select-before-update="false" table="BATCH_JOB_EXECUTION">
+        <id name="jobExecutionId" type="java.lang.Long">
+            <column name="JOB_EXECUTION_ID"/>
+            <generator class="identity"/>
+        </id>
+        <version generated="never" name="version" type="java.lang.Long" unsaved-value="undefined">
+            <column name="VERSION"/>
+        </version>
+        <many-to-one class="com.david.entity.h2.BatchJobInstance" embed-xml="true" fetch="select" insert="true" name="batchJobInstance" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="JOB_INSTANCE_ID" not-null="true"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="createTime" optimistic-lock="true" type="timestamp" unique="false">
+            <column length="26" name="CREATE_TIME" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="startTime" optimistic-lock="true" type="timestamp" unique="false">
+            <column length="26" name="START_TIME"/>
+        </property>
+        <property generated="never" lazy="false" name="endTime" optimistic-lock="true" type="timestamp" unique="false">
+            <column length="26" name="END_TIME"/>
+        </property>
+        <property generated="never" lazy="false" name="status" optimistic-lock="true" type="string" unique="false">
+            <column length="10" name="STATUS"/>
+        </property>
+        <property generated="never" lazy="false" name="exitCode" optimistic-lock="true" type="string" unique="false">
+            <column length="2500" name="EXIT_CODE"/>
+        </property>
+        <property generated="never" lazy="false" name="exitMessage" optimistic-lock="true" type="string" unique="false">
+            <column length="2500" name="EXIT_MESSAGE"/>
+        </property>
+        <property generated="never" lazy="false" name="lastUpdated" optimistic-lock="true" type="timestamp" unique="false">
+            <column length="26" name="LAST_UPDATED"/>
+        </property>
+        <property generated="never" lazy="false" name="jobConfigurationLocation" optimistic-lock="true" type="string" unique="false">
+            <column length="2500" name="JOB_CONFIGURATION_LOCATION"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="batchStepExecutions" optimistic-lock="true" sort="unsorted" table="BATCH_STEP_EXECUTION">
+            <key on-delete="noaction">
+                <column name="JOB_EXECUTION_ID" not-null="true"/>
+            </key>
+            <one-to-many class="com.david.entity.h2.BatchStepExecution" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="batchJobExecutionParamses" optimistic-lock="true" sort="unsorted" table="BATCH_JOB_EXECUTION_PARAMS">
+            <key on-delete="noaction">
+                <column name="JOB_EXECUTION_ID" not-null="true"/>
+            </key>
+            <one-to-many class="com.david.entity.h2.BatchJobExecutionParams" embed-xml="true" not-found="exception"/>
+        </set>
+        <one-to-one class="com.david.entity.h2.BatchJobExecutionContext" constrained="false" embed-xml="true" name="batchJobExecutionContext"/>
+    </class>
+</hibernate-mapping>

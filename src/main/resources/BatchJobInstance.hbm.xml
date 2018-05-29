@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 2018-5-29 1:37:45 by Hibernate Tools 5.3.0.Beta2 --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="H2" dynamic-insert="false" dynamic-update="false" mutable="true" name="com.david.entity.h2.BatchJobInstance" optimistic-lock="version" polymorphism="implicit" schema="PUBLIC" select-before-update="false" table="BATCH_JOB_INSTANCE">
+        <id name="jobInstanceId" type="java.lang.Long">
+            <column name="JOB_INSTANCE_ID"/>
+            <generator class="identity"/>
+        </id>
+        <version generated="never" name="version" type="java.lang.Long" unsaved-value="undefined">
+            <column name="VERSION"/>
+        </version>
+        <property generated="never" lazy="false" name="jobName" optimistic-lock="true" type="string" unique="false">
+            <column length="100" name="JOB_NAME" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="jobKey" optimistic-lock="true" type="string" unique="false">
+            <column length="32" name="JOB_KEY" not-null="true"/>
+        </property>
+        <set embed-xml="true" 
+        	fetch="select" 
+        	inverse="true" 
+        	lazy="false" mutable="true" name="batchJobExecutions" optimistic-lock="true" sort="unsorted" table="BATCH_JOB_EXECUTION">
+            <key on-delete="noaction">
+                <column name="JOB_INSTANCE_ID" not-null="true"/>
+            </key>
+            <one-to-many class="com.david.entity.h2.BatchJobExecution" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>
