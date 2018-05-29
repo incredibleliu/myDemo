@@ -12,6 +12,11 @@
         <property name="hibernate.search.autoregister_listeners">true</property>
         <property name="hibernate.validator.apply_to_ddl">false</property>
         
+        <property name="show_sql">true</property>
+        <property name="hibernate.connection.provider_class">  
+	        org.hibernate.hikaricp.internal.HikariCPConnectionProvider
+	    </property>  
+        
     
         
         <!-- 
